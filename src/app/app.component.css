@@ -3,6 +3,6 @@ button {
     height: 50px;
 }
 
-.yellow {
+.selected {
     background-color: yellow;
 }

@@ -6,26 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  date;
-  time;
+  today;
+  timezone;
   showTime: boolean = true;
-  timezone: string = 'PST';
-  clicked: boolean[] = [false, false, false, false];
-
-  lastClicked(index=-1) {
-    for (var i = 0; i < this.clicked.length; i++) {
-      if (i !== index) {
-        this.clicked[i] = false;
-      } else {
-        this.clicked[i] = true;
-      }
-    }
-  }
 
   getTime(offset) {
-    var today = new Date();
-    today.setHours(today.getHours() + offset);
-    this.date = today.toLocaleDateString();
-    this.time = today.toLocaleTimeString();
+    this.today = new Date();
+    this.today.setHours(this.today.getHours() + offset);
+    if (offset === 0) {
+      this.timezone = 'PST';
+    } else if (offset === 1) {
+      this.timezone = 'MST';
+    } else if (offset === 2) {
+      this.timezone = 'CST';
+    } else {
+      this.timezone = 'EST';
+    }
   }
 }
