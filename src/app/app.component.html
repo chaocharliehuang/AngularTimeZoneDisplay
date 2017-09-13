@@ -1,0 +1,21 @@
+<h1>US Time Zone Display</h1>
+
+<button
+  (click)="showTime = true; getTime(0); lastClicked(0)"
+  [ngClass]="{'yellow': clicked[0]}">PST</button> 
+
+<button
+  (click)="showTime = true; getTime(1); lastClicked(1)"
+  [ngClass]="{'yellow': clicked[1]}">MST</button> 
+
+<button
+  (click)="showTime = true; getTime(2); lastClicked(2)"
+  [ngClass]="{'yellow': clicked[2]}">CST</button> 
+
+<button
+  (click)="showTime = true; getTime(3); lastClicked(3)"
+  [ngClass]="{'yellow': clicked[3]}">EST</button> 
+
+<button (click)="showTime = false; lastClicked()">Clear</button>
+
+<h1 *ngIf="showTime">{{ date }} {{ time }}</h1>
